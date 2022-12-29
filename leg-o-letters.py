@@ -722,22 +722,41 @@ def brickPartDictionary(partID):
 	#brickParts 
 	#1x1 PLATE 30008.dat	#1x2 PLATE 6225.dat	#1x3 3623.DAT	#1x4 3710.DAT	#2x2 PLATE 3022.dat		#2x3 3021.DAT	#2x4 3020.DAT
 	#1x1 BRICK 30071.dat 	#1x2 BRICK 3004.dat #1x3 3622.DAT	#1x4 3010.DAT	#2x2 BRICK 3003.dat		#2x3 3002.DAT	#2x4 3001.DAT
-	brickDictionary = {               					#[xSize,ySize,height][BrickShapes]
-		'1,1,1':["30008.dat","30057.dat"],					#1x1 plates
+	# brickDictionary = {               					#[xSize,ySize,height][BrickShapes]
+	# 	'1,1,1':["30008.dat","30057.dat"],					#1x1 plates
+	# 	'1,2,1':["6225.dat"],								#1x2 plates
+	# 	'1,3,1':["3623.dat"],								#1x3 plates
+	# 	'1,4,1':["3710.dat"],								#1x4 plates
+	# 	'2,2,1':["3022.dat"],								#2x2 plates
+	# 	'2,3,1':["3021.dat"],								#2x3 plates
+	# 	'2,4,1':["3020.dat"],								#2x4 plates
+	# 	'1,1,3':["30071.dat","30068.dat"],							#1x1 bricks
+	# 	'1,2,3':["30136.dat","98283.dat","2877.dat","3004.dat"],	#1x2 bricks
+	# 	'1,3,3':["3622.dat"],										#1x3 bricks
+	# 	'1,4,3':["3010.dat"],										#1x4 bricks
+	# 	'2,2,3':["3003.dat"],										#2x2 bricks
+	# 	'2,3,3':["3002.dat"],										#2x3 bricks
+	# 	'2,4,3':["3001.dat"]										#2x4 bricks
+	# 	}
+
+	brictionary = {               					#[xSize,ySize,height][BrickShapes]
+		'1,1,1':["30008.dat"], #,"30057.dat"],					#1x1 plates
 		'1,2,1':["6225.dat"],								#1x2 plates
 		'1,3,1':["3623.dat"],								#1x3 plates
 		'1,4,1':["3710.dat"],								#1x4 plates
 		'2,2,1':["3022.dat"],								#2x2 plates
 		'2,3,1':["3021.dat"],								#2x3 plates
 		'2,4,1':["3020.dat"],								#2x4 plates
-		'1,1,3':["30071.dat","30068.dat"],							#1x1 bricks
-		'1,2,3':["30136.dat","98283.dat","2877.dat","3004.dat"],	#1x2 bricks
+		'1,1,3':["30071.dat"], #,"30068.dat"],							#1x1 bricks
+		'1,2,3':["3004.dat"], #"30136.dat","98283.dat","2877.dat",],	#1x2 bricks
 		'1,3,3':["3622.dat"],										#1x3 bricks
 		'1,4,3':["3010.dat"],										#1x4 bricks
 		'2,2,3':["3003.dat"],										#2x2 bricks
 		'2,3,3':["3002.dat"],										#2x3 bricks
 		'2,4,3':["3001.dat"]										#2x4 bricks
 		}
+	brickDictionary = brictionary
+	
 	brickOptions = brickDictionary.get(partID)
 	brickDemensionList = list(brickDictionary.keys())
 	if len(brickOptions)>1:
