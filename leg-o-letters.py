@@ -420,7 +420,9 @@ def selectColourAndHues(hue,transparency): #Colour hue selector
 
 	simpleColours = {   #Allow for selection of both light and dark if needed
 		'Blues':['LightBlues','DarkBlues'],								
-		'Pinks':['LightPinks','DarkPinks'],										
+		'Pinks':['LightPinks','DarkPinks'],	
+		# Added DarkGreens colour codes for bricks
+		'Greens':['DarkGreens'],								
 		'Greys':['LightGreys','DarkGreys'],										
 		'Browns':['LightBrowns','DarkBrowns'],
 		}
@@ -431,7 +433,9 @@ def selectColourAndHues(hue,transparency): #Colour hue selector
 		'Yellows':[46,14,18,226],								
 		'Greens':[35,2,10,27,74],								
 		'LightBlues':[293,9,73,212,232,321,322],								
-		'DarkBlues':[33,1,85,89,112],								
+		'DarkBlues':[33,1,85,89,112],
+		# Added DarkGreens colour codes for bricks
+		'DarkGreens':[2,10,74,115,288,330,34],						
 		'Indigos':[52,23,85,219],								
 		'Violets':[44,22,26,30,218],								
 		'Whites':[47,15,503],							
@@ -599,6 +603,7 @@ def getAvailableFonts(selectedFont):
 	"comicbd.ttf":"Comic Sans",
 	"COOPBL.TTF":"Cooper Black",
 	"courbd.ttf":"Courier Bold",
+	"ROBOTO-REGULAR_0.TTF":"Roboto Regular",
 	"timesbd.ttf":"Times Bold",
 	"wingding.ttf":"Wingdings"
 	}
@@ -669,6 +674,8 @@ def userFont(inputType):
 '''
 
 def getFontSize():
+	print()
+	print("Choose A Font Size:")
 	fontSize = [12,14,16,20,24,28,32]
 	numberChosen,selectedItem,skipWhileLoop = chooseItem(fontSize)
 	return(selectedItem)
@@ -807,7 +814,9 @@ def getFinalConfirmation():
 		sys.exit(0)
 	elif finalConfirmation !='':
 		print ("Reloading...")
-		execfile("LegoLetters.py")
+		# Changed in Python 3.x
+		# execfile("LegoLetters.py") 
+		exec(open("./leg-o-letters.py").read())
 		sys.exit()
 
 
@@ -979,7 +988,7 @@ def resetldrFile(fileName):
 	LDrawFile = open(fileName, 'w').close()
 	LDrawFile = open(fileName, 'w')
 	LDrawFile.write('0 // Name: '+ fileName +'\n')
-	LDrawFile.write('0 // Author:  BRICKALO ' + dateTimeStamp +'\n')
+	LDrawFile.write('0 // Author:  CalmCode.nl ' + dateTimeStamp +'\n')
 	#LDrawFile.write('1 7 0 0 0 0 0 1 0 1 0 -1 0 0 3031.dat'+'\n') #ADD 4x4 BASE PLATE
 	###LDrawFile.write('1 7 40 0 40 0 0 1 0 1 0 -1 0 0 42534.dat'+'\n') #ADD 8x8 BASE PLATE
 	#LDrawFile.write('1 4 30 0 30 0 0 1 0 1 0 -1 0 0 6141.dat'+'\n') #ADD 4x4 MARKER STUD
@@ -1436,4 +1445,3 @@ if __name__ == "__main__":
 	#input()
 else:
 	print ( ("...being imported into another module"))
-

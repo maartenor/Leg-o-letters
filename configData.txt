@@ -1,7 +1,5 @@
-Hello
-comicbd.ttf
+Introve
+arial.ttf
 16
-Yellows
-2
-True
-LightPinks
+DarkGreens
+1
